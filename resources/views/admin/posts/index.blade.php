@@ -22,7 +22,7 @@
                 @forelse ($posts as $post)
                 <tr>
                     <td><a href="{{ route('admin.posts.show', $post->id) }}">{{ $post->id }}</a></td>
-                    <td>{{ $post->author }}</td>
+                    <td>{{ $post->user->name }}</td>
                     <td>{{ $post->post_date }}</td>
                     <td><a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning">Edit</a></td>
                     <td>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class postsController extends Controller
 {
@@ -16,7 +17,7 @@ class postsController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::where('user_id', Auth::id())->get();
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -42,6 +43,7 @@ class postsController extends Controller
     {
         //
         $data=$request->all();
+        $data['user_id']=Auth::user()->id;
         $newPost= new Post();
         $newPost->create($data);
 

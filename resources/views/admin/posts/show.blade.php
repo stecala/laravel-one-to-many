@@ -4,7 +4,7 @@
     <div class="mt-5 card-container">
         <div class="row">
             <div class="col-12">
-                <h4 class="author">{{ $post->author }}</h4>
+                <h4 class="author">{{ $post->user->name }}</h4>
             </div>
             <div class="col-12 text-center">
                 <img src="{{ $post->img_post }}" alt="img post">
