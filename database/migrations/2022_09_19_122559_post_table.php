@@ -32,5 +32,6 @@ class PostTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('posts');
     }
 }
